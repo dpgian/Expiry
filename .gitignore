@@ -12,9 +12,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# config
-/config
-
-# package-lock
-package-lock.json
-
