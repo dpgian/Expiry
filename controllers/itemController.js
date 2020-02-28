@@ -2,12 +2,14 @@ const Item = require('../models/Item')
 
 module.exports = {
     findAll: function(req, res) {
-        Item.find(req.query)
+        Item.find(req.body)
+            //.populate('store')
             .then(items => res.json(items))
             .catch(err => res.status(422).json(err))
     },
     findById: function(req, res) {
         Item.findById(req.params.id)
+            //.populate('store')
             .then(item => res.json(item))
             .catch(err => res.status(422).json(err))
     },
