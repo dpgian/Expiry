@@ -1,0 +1,52 @@
+GENERAL:
+
+
+
+SEVER: 
+
+    Item:
+        # Date
+            Should be Date or String and has 
+            to be controlled in input
+        # Store Id
+            String to have different stores
+        # Category
+            Should have a category to sort on
+
+    Item date should be an array containing all dates
+        and it should handle crud operations.
+        # We could fetch the Item and then handle the 
+            CRUD operation on client side, replacing
+            the item in the server
+        # On deletion if the item has no date it should be
+            removed from the db
+
+    Store:
+        # Name
+        # Password
+        # Id
+        It would be nice to have a simple login
+        and fetch items only if a user is logged in
+
+CLIENT:
+
+    # Need a CRUD page for User/StoreId
+
+    # Color on table:
+        Yellow if expiry date is in the next 3 days
+	    Orange if they are expiring in the same day
+	    Red if they are past expiry date
+
+    # Delete button only if the item is expiring in 
+        3 days
+
+    # NoMatch and ItemDetails pages are not needed
+        as the app can run single page
+        # ItemDetails could be used to change date
+            and show all available dates of the item
+
+    # ItemsName should be given 
+
+    # Store name on top of the page
+
+    
