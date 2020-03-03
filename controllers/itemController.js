@@ -1,8 +1,10 @@
 const Item = require('../models/Item')
+const Store = require('../models/Store')
 
 module.exports = {
-    findAll: function(req, res) {
-        Item.find(req.body)
+    findAll: async function(req, res) {
+        const store = await Store.findById(req.store.id)
+        Item.find({ store })
             //.populate('store')
             .then(items => res.json(items))
             .catch(err => res.status(422).json(err))

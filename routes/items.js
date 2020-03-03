@@ -1,9 +1,11 @@
 const router = require('express').Router()
 const itemController = require('../controllers/itemController')
 
+const auth = require('../middleware/auth')
+
 router
     .route('/')
-    .get(itemController.findAll)
+    .get(auth, itemController.findAll)
     .post(itemController.create)
 
 router 
