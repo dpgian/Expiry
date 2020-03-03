@@ -1,6 +1,13 @@
 GENERAL:
 
+    - Frotend does not support store and throw error
+        on creation
 
+    1: Rewrite frontend to show a simple table and 
+        a NAV
+    2: Creation of login/registration page for store
+    3: Store name should be displayed in nav if auth
+    4: Display list of items of store when auth
 
 SEVER: 
 
