@@ -14,6 +14,9 @@ const itemSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Store',
         required: true
+    },
+    category : {
+        type: String
     }
 })
 
