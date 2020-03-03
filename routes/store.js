@@ -23,7 +23,12 @@ router
 router
     .route('/login')
     .post([
-        
+        check('name', 'Please enter a valid username')
+        .not()
+        .isEmpty()
+        ,
+        check('password', 'Please enter a valid password')
+        .isLength({ min: 6 })
     ], storeController.login)
 
 module.exports = router
