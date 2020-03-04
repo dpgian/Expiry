@@ -17,6 +17,6 @@ export default {
         console.log('Not implemented yet')
     },
     logIn: function(storeData) {
-        console.log('Not implemented yet')
+        return axios.post(`/api/store/login`, storeData)
     }
 }
