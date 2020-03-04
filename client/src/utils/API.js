@@ -12,5 +12,11 @@ export default {
     },
     saveItem: function(itemData) {
         return axios.post(`/api/items`, itemData)
+    },
+    registerStore: function(storeData) {
+        console.log('Not implemented yet')
+    },
+    logIn: function(storeData) {
+        console.log('Not implemented yet')
     }
 }
