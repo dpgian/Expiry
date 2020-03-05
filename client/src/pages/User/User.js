@@ -43,6 +43,7 @@ const UserPage = () => {
 					// window.sessionStorage.setItem('token', token)
 					let token = res.data.token
 					window.localStorage.setItem('token', token)
+					window.localStorage.setItem('storeName', name)
 				})
 				//window.localStorage.setItem('token', token)
 				//getItem('token')
@@ -51,7 +52,7 @@ const UserPage = () => {
 				// error.data.errors array when input is invalid (can move to client)
 				// error.data.message when password wrong 400 or store 404
 		}
-		// name : password
+
 	}
 
 	let handleRegister = (e) => {

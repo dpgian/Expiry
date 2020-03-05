@@ -2,7 +2,9 @@ import axios from 'axios'
 
 export default {
     getItems: function() {
-        return axios.get('/api/items')
+        return axios.get('/api/items', {
+            headers: { token: window.localStorage.getItem('token')} 
+        })
     },
     getItem: function(id) {
         return axios.get(`/api/items/${id}`)

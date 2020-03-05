@@ -7,7 +7,7 @@ const itemSchema = new Schema({
         requierd: true
     },
     date : {
-        type: String,
+        type: Array,
         required: true
     },
     store : { 
