@@ -107,7 +107,7 @@ const UserPage = () => {
 						<TextField className='form-input' id='store-password' variant='outlined' type='password' label='Enter password' helperText={errors.login_password} {...bindPassword}/>
 						<Button variant='outlined' onClick={handleLogin}>Log In</Button>
 						<p className='message'>
-							Not registerd? <p onClick={''}>Create an account</p>
+							Not registerd? <p>Create an account</p>
 						</p>
 					</form>
 				</form>

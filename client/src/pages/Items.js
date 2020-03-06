@@ -3,9 +3,17 @@ import API from '../utils/API'
 import MaterialTable from 'material-table'
 
 let Item = ( {setStoreName} ) => {
-
-    //let initialData = []
   
+    // function that sorts the data based on asc date
+    let sortData = (array) => {
+      let a = array.sort(function(a, b){
+        var aa = a.date.split('-').reverse().join(),
+            bb = b.date.split('-').reverse().join();
+        return aa < bb ? -1 : (aa > bb ? 1 : 0);
+      })
+      return a
+    }
+
     // splits array so that every element has only one date and 
     // can be rendered as child in table
     let splitData = (fetchedData) => {
@@ -23,27 +31,20 @@ let Item = ( {setStoreName} ) => {
                 newarray = [...newarray, {...x, date: x.date[0]}]
             })
 
-        } 
-        
+          } 
+          
+        sortData(newarray)
         setData(newarray)
+        // setStoreName from props so that it can be rendered in Nav component
         setStoreName(newarray[0].store.name)
-        setStore(newarray[0].store.id)
+        // setStore contains the store id that is needed in the API post route to create a new item
+        setStore(newarray[0].store._id)
     }
   
     async function fetchData() {
       API.getItems()
              .then(res => splitData(res.data))
              .catch(err => console.log(err))
-    }
-
-    // Enforces sort on date
-    let sortDate = () => {
-      let a = data.sort(function(a, b){
-        var aa = a.date.split('-').reverse().join(),
-            bb = b.date.split('-').reverse().join();
-        return aa < bb ? -1 : (aa > bb ? 1 : 0);
-      })
-      return a
     }
   
     useEffect(() => {
@@ -59,7 +60,7 @@ let Item = ( {setStoreName} ) => {
           <MaterialTable
             columns={[
               { title: 'Name', field: 'name', sorting: false },
-              { title: 'Date', field: 'date', sorting: false, customSort: sortDate() }
+              { title: 'Date', field: 'date', sorting: false }
             ]}
             data={data}
             editable={{

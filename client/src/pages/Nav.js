@@ -1,16 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 
 const Nav = ( {store, setStore} ) => {
-    // const [storeName, setStoreName] = useState(() => {
-    //     try {
-    //         const name = window.localStorage.getItem('storeName')
-    //         return name ? name : ''
-    //     } catch (e) {
-    //         return ''
-    //     }
-    // })
 
     let history = useHistory()
 
