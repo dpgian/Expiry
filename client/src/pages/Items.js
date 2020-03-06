@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import API from '../utils/API'
 import MaterialTable from 'material-table'
+import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers'
+import moment from 'moment'
+import MomentUtils from '@date-io/moment'
 
 let Item = ( {setStoreName} ) => {
   
@@ -53,6 +56,7 @@ let Item = ( {setStoreName} ) => {
 
     let [ data, setData ] = useState([])
     let [ store, setStore ] = useState('')
+    let [ selectedDate, handleDateChange ] = useState(new Date())
 
     return (
       <>
@@ -60,14 +64,28 @@ let Item = ( {setStoreName} ) => {
           <MaterialTable
             columns={[
               { title: 'Name', field: 'name', sorting: false },
-              { title: 'Date', field: 'date', sorting: false }
+              { title: 'Date', field: 'date', sorting: false, 
+                editComponent: () => (
+                  <MuiPickersUtilsProvider utils={MomentUtils}>
+                    <DatePicker
+                      disablePast
+                      variant="inline"
+                      format='DD-MM-YY'
+                      margin="normal"
+                      id="date-picker"
+                      value={selectedDate}
+                      onChange={handleDateChange}
+                    />
+                  </MuiPickersUtilsProvider>
+                )
+               }
             ]}
             data={data}
             editable={{
               onRowAdd: newItem => API.saveItem({
-                                        store,
-                                        name: newItem.name,
-                                        date: newItem.date
+                                      store,
+                                      name: newItem.name,
+                                      date: moment(selectedDate).format('DD-MM-YY')
                                       })
                                       .then(res => fetchData())
                                       .catch(err => console.log(err))
