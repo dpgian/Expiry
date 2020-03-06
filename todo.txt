@@ -1,11 +1,12 @@
 GENERAL:
 
-    Display table sort function should be implemented
-    
-    Display table filter does not work properly
+    Restore password, lost password
 
-    Store name display in navbar is saved in localStorage
-        as storeName
+    Add need to have standard input (date, for example 
+        in format dd-mm-yyy)
+
+    Custom color for items expiring in less than 3 days
+        [ref. Front-end]
 
 SEVER: 
 

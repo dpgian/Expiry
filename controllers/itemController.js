@@ -5,7 +5,7 @@ module.exports = {
     findAll: async function(req, res) {
         const store = await Store.findById(req.store.id)
         Item.find({ store })
-            //.populate('store')
+            .populate('store')
             .then(items => res.json(items))
             .catch(err => res.status(422).json(err))
     },

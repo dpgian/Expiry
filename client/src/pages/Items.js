@@ -1,17 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import API from '../utils/API'
-import MaterialTable, { MTableFilterRow, MTableBody, MTableToolbar } from 'material-table'
+import MaterialTable from 'material-table'
 
-// class Item extends Component {
-//     
-//     deleteBook = id => {
-//         API.deleteItem(id)
-//             .then(res => this.loadItems())
-//             .catch(err => console.log(err))
-//     }
-
-
-function Item() {
+let Item = ( {setStoreName} ) => {
 
     //let initialData = []
   
@@ -35,8 +26,8 @@ function Item() {
         } 
         
         setData(newarray)
-        //console.log(newarray)
-        setStore(newarray[0].store)
+        setStoreName(newarray[0].store.name)
+        setStore(newarray[0].store.id)
     }
   
     async function fetchData() {
