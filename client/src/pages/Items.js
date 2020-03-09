@@ -62,7 +62,9 @@ let Item = ( {setStoreName} ) => {
     let [ store, setStore ] = useState('')
     let [ selectedDate, handleDateChange ] = useState(new Date())
 
-    // An item listing can be implemented by adding < lookup: itemList > option to a column
+    // TABLE IMPLEMENTATIONS:
+    //      Listing of item names:     < lookup: itemList > option to column (import itemList)
+    //      Conditional deletion:      remove comment from isDeletable
 
     return (
       <>
@@ -88,6 +90,7 @@ let Item = ( {setStoreName} ) => {
             ]}
             data={data}
             editable={{
+              //isDeletable: rowData => moment(rowData.date, 'DD-MM-YY').isBefore(moment().add(2, 'days')),
               onRowAdd: newItem => API.saveItem({
                                       store,
                                       name: newItem.name,
@@ -120,6 +123,14 @@ let Item = ( {setStoreName} ) => {
               })
             }}
             parentChildData={(row, rows) => rows.find(a => a._id === row.parentId)}
+            localization={{
+              body: {
+                emptyDataSourceMessage: 'No tracked items in store.',
+                editRow: {
+                  deleteText: 'Are you sure you want to delete this item?'
+                }
+              }
+            }}
           />
         </div>
       </>

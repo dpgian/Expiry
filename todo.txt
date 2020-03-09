@@ -5,8 +5,6 @@ GENERAL:
 
     Restore password, lost password
 
-    Custom color for items expiring in less than 3 days
-
 SERVER: 
 
     Item:   
@@ -23,11 +21,6 @@ SERVER:
             Lost password reset
         
 CLIENT:
-
-    # Table messages need to be changed
-    
-    # Make deletion possible only for items expiring in few days
-        It does not have to be implemented, but has to be available
 
     # Error handling and UX
 
