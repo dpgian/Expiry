@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles'
-import API from '../../utils/API'
+import API from '../utils/API'
 import { useHistory } from 'react-router-dom'
 
-import { Paper, TextField, Button } from '@material-ui/core'
+import { Paper, TextField, Button, Typography } from '@material-ui/core'
 
 let useInput = initivalValue => {
 	const [value, setValue] = useState(initivalValue)
@@ -48,7 +48,7 @@ const useStyles = makeStyles({
 	message: {
 		margin: '15px 0 0',
 		color: '#b3b3b3',
-		fontSize: '14px'
+		font: 'Medium'
 	},
 	message_link: {
 		margin: '5px 0 0',
@@ -101,7 +101,7 @@ const UserPage = () => {
 				// window.sessionStorage.setItem('token', token)
 				let token = res.data.token
 				window.localStorage.setItem('token', token)	
-				history.push('/')
+				history.push('/item')
 			})
 			.catch(err => {
 				switch(err.response.status) {
@@ -185,7 +185,7 @@ const UserPage = () => {
 						<TextField error={eLp !== ''} className={classes.form_input} id='store-password' variant='outlined' type='password' label='Enter password' helperText={eLp} {...bindPassword}/>
 						<Button className={classes.form_button} variant='outlined' onClick={handleLogin}>Log In</Button>
 						<div className={classes.message}>
-							Not registered? <p className={classes.message_link} onClick={() => handleFormChange('register')}>Create an account</p>
+							Don't have an account? <Typography className={classes.message_link} onClick={() => handleFormChange('register')}>Create an account</Typography>
 						</div>
 					</div>
 					:
@@ -195,7 +195,7 @@ const UserPage = () => {
 						<TextField error={eRp2 !== ''} className={classes.form_input} id='store-password2' variant='outlined' type='password' label='Re-enter password' helperText={eRp2} {...bindPassword2}/>
 						<Button className={classes.form_button} variant='outlined' onClick={handleRegister}>Register</Button>
 						<div className={classes.message}>
-							Already registered? <p className={classes.message_link} onClick={() => handleFormChange('login')}>Log In</p>
+							Already registered? <Typography className={classes.message_link} onClick={() => handleFormChange('login')}>Log In</Typography>
 						</div>
 					</div>
 					}

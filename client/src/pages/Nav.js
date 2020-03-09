@@ -9,13 +9,17 @@ const Nav = ( {store, setStore} ) => {
     const logOut = () => {
         window.localStorage.removeItem('token')
         setStore('')
-        history.go('/')
+        history.push('/')
     }
 
     return (
         <>
             <nav className='navbar navbar-expand-md navbar-dark bg-dark'>
+                { store ? 
+                <Link to='/item' className='navbar-brand'>Expy</Link>
+                :
                 <Link to='/' className='navbar-brand'>Expy</Link>
+                }
                 <span className='navbar-text'>{store}</span>
                 
                 <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarMain' aria-controls='navbarMain' aria-expanded='false' aria-label='Toggle navigation'>
@@ -25,7 +29,7 @@ const Nav = ( {store, setStore} ) => {
                 <div className='collapse navbar-collapse flex-grow-1 text-center' id='navbarMain'>
                     <ul className='navbar-nav ml-auto flex-nowrap'>
                         {
-                            window.localStorage.getItem('token') ? 
+                            store ? 
                         <li className='nav-item'>
                             <div className='nav-link' style={{cursor: 'pointer'}} onClick={logOut}>Log Out</div>
                         </li>
