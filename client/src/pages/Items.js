@@ -68,11 +68,11 @@ let Item = ( {setStoreName} ) => {
 
     return (
       <>
-        <div style={{ maxWidth: '80%', margin: 'auto', paddingTop: '1rem' }}>
+        <div style={{ maxWidth: '100%', margin: 'auto', paddingTop: '1rem' }}>
           <MaterialTable
             columns={[
-              { title: 'Name', field: 'name', sorting: false },
-              { title: 'Date', field: 'date', sorting: false, 
+              { title: 'Name', field: 'name', sorting: false, removable: false },
+              { title: 'Date', field: 'date', sorting: false, removable: false,
                 editComponent: () => (
                   <MuiPickersUtilsProvider utils={MomentUtils}>
                     <DatePicker
@@ -86,7 +86,8 @@ let Item = ( {setStoreName} ) => {
                     />
                   </MuiPickersUtilsProvider>
                 )
-               }
+               },
+              {title: 'Group', field: 'group', sorting: true}
             ]}
             data={data}
             editable={{
@@ -104,6 +105,8 @@ let Item = ( {setStoreName} ) => {
                                          .catch(err => console.log(err))
             }}
             options={{
+              columnsButton: true,
+              grouping: false,
               actionsColumnIndex: -1,
               paging: false,
               draggable: false,
