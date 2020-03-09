@@ -16,7 +16,7 @@ export default {
         return axios.post(`/api/items`, itemData)
     },
     registerStore: function(storeData) {
-        console.log('Not implemented yet')
+        return axios.post(`/api/store`, storeData)
     },
     logIn: function(storeData) {
         return axios.post(`/api/store/login`, storeData)

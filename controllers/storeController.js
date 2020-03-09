@@ -39,7 +39,7 @@ module.exports = {
             _store.password = await bcrypt.hash(password, salt)
 
             Store.create(_store)
-                .then(newStore => req.json(newStore))
+                .then(newStore => res.json(newStore))
                 .catch(err => res.status(422).json(err))
         
         } catch (e) {

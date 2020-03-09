@@ -15,3 +15,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Search text width to 100% */
+.MuiTextField-root {
+  border: 0 !important;
+  width: 100% !important; 
+}
