@@ -3,9 +3,6 @@ GENERAL:
     Create a landing page (About page) that will load if there is no store logged in
     When logged in the about page will show in the navbar
 
-    Create registration form for a new store
-    Implement switch between login and register
-
     Restore password, lost password
 
     Custom color for items expiring in less than 3 days

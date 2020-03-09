@@ -5,6 +5,10 @@ import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers'
 import moment from 'moment'
 import MomentUtils from '@date-io/moment'
 
+// This imports the list of items in case we opt for a lookup in the table
+
+//import itemList from './itemList/itemList'
+
 let Item = ( {setStoreName} ) => {
   
     // function that sorts the data based on asc date
@@ -58,6 +62,8 @@ let Item = ( {setStoreName} ) => {
     let [ store, setStore ] = useState('')
     let [ selectedDate, handleDateChange ] = useState(new Date())
 
+    // An item listing can be implemented by adding < lookup: itemList > option to a column
+
     return (
       <>
         <div style={{ maxWidth: '80%', margin: 'auto', paddingTop: '1rem' }}>
@@ -98,7 +104,20 @@ let Item = ( {setStoreName} ) => {
               actionsColumnIndex: -1,
               paging: false,
               draggable: false,
-              showTitle: false
+              showTitle: false,
+              rowStyle: rowData => ({
+                backgroundColor: (
+                  rowData.date === moment().format('DD-MM-YY') ? '#FF5722' 
+                  :
+                  rowData.date === moment().add(1, 'days').format('DD-MM-YY') ? '#FFA726' 
+                  :
+                  rowData.date === moment().add(2, 'days').format('DD-MM-YY') ? '#FFEE58'
+                  : 
+                  moment(rowData.date, 'DD-MM-YY').isBefore(moment()) ? '#9E9E9E' 
+                  :
+                  ''
+                   )
+              })
             }}
             parentChildData={(row, rows) => rows.find(a => a._id === row.parentId)}
           />
