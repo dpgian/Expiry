@@ -9,6 +9,7 @@ import About from './pages/About'
 const App = () => {
 
   let [store, setStore] = React.useState('')
+  let [storeId, setStoreId] = React.useState('')
 
   return(
     <Router>
@@ -16,8 +17,8 @@ const App = () => {
         <Nav store={store} setStore={setStore}></Nav>
         <Switch>
           <Route exact path='/' render={() => <About />}/>
-          <Route exact path='/item' render={() => <Items setStoreName={setStore}/>} />
-          <Route exact path='/user' render={() => <UserPage setStore={setStore}/>} />
+          <Route exact path='/item' render={() => <Items storeId={storeId}/>} />
+          <Route exact path='/user' render={() => <UserPage setStore={setStore} setStoreId={setStoreId}/>} />
           <Route component={NoMatch} />
         </Switch>
       </div>

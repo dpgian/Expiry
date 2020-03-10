@@ -58,7 +58,7 @@ const useStyles = makeStyles({
 	}
 })
 
-const UserPage = () => {
+const UserPage = ({setStore, setStoreId}) => {
 	let history = useHistory()
     let [view, setView] = useState('login')
 	let { value: name , bind: bindName , reset: resetName } = useInput('')
@@ -69,7 +69,8 @@ const UserPage = () => {
 	let [ eLp, seteLp ] = useState('')
 	let [ eRn, seteRn ] = useState('')
 	let [ eRp, seteRp ] = useState('')
-	let [eRp2, seteRp2 ] = useState('')
+	let [ eRp2, seteRp2 ] = useState('')
+
 
 	// Resets the passwords value when switching form and sets value for view
 	let handleFormChange = (value) => {
@@ -101,6 +102,8 @@ const UserPage = () => {
 				// window.sessionStorage.setItem('token', token)
 				let token = res.data.token
 				window.localStorage.setItem('token', token)	
+				setStore(name)
+				setStoreId(res.data.storeId)
 				history.push('/item')
 			})
 			.catch(err => {
@@ -119,7 +122,8 @@ const UserPage = () => {
 						setTimeout(() => seteLn(''), 2500)
 						setTimeout(() => seteLp(''), 2500)
 				}
-			})	
+			})
+		
 	}
 
 	let handleRegister = (e) => {
