@@ -8,6 +8,7 @@ const Nav = ( {store, setStore} ) => {
 
     const logOut = () => {
         window.localStorage.removeItem('token')
+        window.localStorage.removeItem('storeName')
         setStore('')
         history.push('/')
     }

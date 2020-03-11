@@ -9,7 +9,7 @@ import MomentUtils from '@date-io/moment'
 // This imports the list of items in case we opt for a lookup in the table
 
 //import itemList from './List/itemList'
-//import categoryList from './List/CategoryList'
+//import categoryList from './List/categoryList'
 
 let Item = ({storeId}) => {
   
@@ -27,7 +27,7 @@ let Item = ({storeId}) => {
     // can be rendered as child in table
     let splitData = (fetchedData) => {
         let newarray = []
-  
+
         if (fetchedData.length > 0) {
 
             fetchedData.forEach(x => {  
@@ -51,19 +51,21 @@ let Item = ({storeId}) => {
     }
   
     async function fetchData() {
-      // API CALL TO GET STORE ID
 
       API.getItems()
              .then(res => splitData(res.data))
              .catch(err => {
+               console.log(err)
                switch(err.response.status) {
                  case 500:
                    setError('Session expired: Please log out and log in again.')
+                   window.localStorage.removeItem('storeName')
                    break
                  default:
                    console.log('Error while fetching items: ' + err)
                }
              })
+
     }
   
     useEffect(() => {

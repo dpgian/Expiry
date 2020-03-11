@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 module.exports = {
     findAll: function(req, res) {
-        Store.find(req.body)
+        Store.find(req.query)
             .then(stores => res.json(stores))
             .catch(err => res.status(422).json(err))
     },

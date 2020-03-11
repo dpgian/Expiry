@@ -102,6 +102,7 @@ const UserPage = ({setStore, setStoreId}) => {
 				// window.sessionStorage.setItem('token', token)
 				let token = res.data.token
 				window.localStorage.setItem('token', token)	
+				window.localStorage.setItem('storeName', name)
 				setStore(name)
 				setStoreId(res.data.storeId)
 				history.push('/item')

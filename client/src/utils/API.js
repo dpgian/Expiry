@@ -20,5 +20,13 @@ export default {
     },
     logIn: function(storeData) {
         return axios.post(`/api/store/login`, storeData)
+    },
+    getStore: function(storeName) {
+        return axios.get(`/api/store`, {
+            params: {
+              name: storeName
+            }
+        }
+    )
     }
 }
