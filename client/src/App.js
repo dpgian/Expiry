@@ -5,6 +5,7 @@ import NoMatch from './pages/NoMatch'
 import Nav from './pages/Nav'
 import UserPage from './pages/User'
 import About from './pages/About'
+import Dotting from './pages/Dotting'
 import API from './utils/API'
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
           <Route exact path='/' render={() => <About />}/>
           <Route exact path='/item' render={() => <Items storeId={storeId}/>} />
           <Route exact path='/user' render={() => <UserPage setStore={setStore} setStoreId={setStoreId}/>} />
+          <Route exact path='/dotting' render={() => <Dotting />}/>
           <Route component={NoMatch} />
         </Switch>
       </div>

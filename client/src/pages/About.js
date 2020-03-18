@@ -25,10 +25,12 @@ const About = () => {
                 </Typography>
                     <br/>
                 <Typography variant='body2' align='center'>
+                    Day dotting made easy. 
+                    <br />
+                    Register and account and log in for the expiration manager table
+                    <br />
                     Sync between multiple devices
                     <br />
-                    Just Register and account and you are ready to go!
-                    <br /> 
                     ( More features coming with future updates )
                 </Typography>    
             </Paper>

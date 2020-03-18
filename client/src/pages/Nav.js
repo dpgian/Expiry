@@ -30,14 +30,24 @@ const Nav = ( {store, setStore} ) => {
                 <div className='collapse navbar-collapse flex-grow-1 text-center' id='navbarMain'>
                     <ul className='navbar-nav ml-auto flex-nowrap'>
                         {
-                            store ? 
-                        <li className='nav-item'>
-                            <div className='nav-link' style={{cursor: 'pointer'}} onClick={logOut}>Log Out</div>
-                        </li>
+                            store ?
+                        <> 
+                            <li className='nav-item'>
+                                <Link to={'/dotting'} className='nav-link'>Dotting</Link>
+                            </li>
+                            <li className='nav-item'>
+                                <div className='nav-link' style={{cursor: 'pointer'}} onClick={logOut}>Log Out</div>
+                            </li>
+                        </>
                             :
-                        <li className='nav-item'>
-                            <Link to={'/user'} className='nav-link'>Login/Register</Link>
-                        </li>
+                        <>
+                            <li className='nav-item'>
+                                <Link to={'/dotting'} className='nav-link'>Dotting</Link>
+                            </li>
+                            <li className='nav-item'>  
+                                <Link to={'/user'} className='nav-link'>Login/Register</Link>
+                            </li>
+                        </>
                         } 
                     </ul>
                 
